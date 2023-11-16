@@ -1,17 +1,17 @@
 # EC2 instance variables
 variable "ami" {
   description = "Amazon Machine Image (AMI) ID for the EC2 instance"
-  default     = "your-ami-id"  # Replace with your desired AMI ID
+  default     = "ami-0fc5d935ebf8bc3bc"  # Replace with your desired AMI ID
 }
 
 variable "instance_type" {
   description = "Type of EC2 instance"
-  default     = "your-instance-type"  # Replace with your desired instance type
+  default     = "t2.micro"  # Replace with your desired instance type
 }
 
 variable "git_repo" {
   description = "Git repository URL containing Dockerfiles and docker-compose.yml"
-  default     = "https://github.com/yourusername/your-docker-repo.git"  # Replace with your Git repository URL
+  default     = "https://github.com/vandana-dsu/demo.git"  # Replace with your Git repository URL
 }
 
 # EC2 instance resource
