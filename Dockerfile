@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy the contents of the src directory to the container at /app
 COPY src/ /app
 
-# Expose port 8000 to the outside world
-EXPOSE 8000
+# Expose port 80 to the outside world
+EXPOSE 80
 
 # Command to run the application
 CMD ["nginx", "-g", "daemon off;"]
