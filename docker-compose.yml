@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx:
+    image: your-dockerhub-username/your-nginx-image:latest
+    ports:
+      - "8000:80"
+    command: ["nginx", "-g", "daemon off;"]
+
+  volumes:
+    - ./src:/app
+
+  dockerhub:
+    image: your-dockerhub-username/your-nginx-image:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    command: ["nginx", "-g", "daemon off;"]
