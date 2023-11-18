@@ -72,3 +72,8 @@ resource "aws_security_group" "instance_sg" {
 provider "aws" {
   region = var.region
 }
+
+# Output to display instance information
+output "instance_info" {
+  value = aws_instance.example_instance
+}
