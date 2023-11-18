@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:80"
     command: ["nginx", "-g", "daemon off;"]
-
+    
   volumes:
     - ./src:/app
 
