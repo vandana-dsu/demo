@@ -65,3 +65,10 @@ jobs:
       #- name: Stop EC2 Instances
        # run: |
         #  aws ec2 stop-instances --instance-ids i-0ae886df663d67fe0 --region us-east-1
+
+      - name: Terraform Outputs
+        run: terraform output
+
+      - name: Show Outputs
+        run: |
+          echo "Output: ${{ steps.terraform.outputs }}
