@@ -13,6 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Remove this step if you don't need Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -28,6 +29,11 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.0.0
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
 
       - name: Configure AWS credentials
         run: |
@@ -51,4 +57,4 @@ jobs:
 
       - name: Stop EC2 Instances
         run: |
-          aws ec2 stop-instances --instance-ids your-instance-ids --region your-region
+          aws ec2 stop-instances --instance-ids i-0ae886df663d67fe0 --region us-east-1
