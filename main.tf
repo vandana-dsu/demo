@@ -23,7 +23,6 @@ variable "region" {
 resource "aws_instance" "example_instance" {
   ami           = var.ami
   instance_type = var.instance_type
-  region        = var.region
 
   # Other instance configuration options can be added here
 
@@ -41,9 +40,6 @@ resource "aws_instance" "example_instance" {
               cd /tmp/repo
               docker-compose up -d
               EOF
-
-  # Security group for allowing HTTP, SSH, and Docker traffic
-  vpc_security_group_ids = [aws_security_group.instance_sg.id]
 }
 
 # Security group resource
@@ -71,4 +67,8 @@ resource "aws_security_group" "instance_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+provider "aws" {
+  region = var.region
 }
