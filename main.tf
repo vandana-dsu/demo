@@ -18,6 +18,7 @@ variable "git_repo" {
 resource "aws_instance" "example_instance" {
   ami           = var.ami
   instance_type = var.instance_type
+  region        = "us-east-1"
 
   # Other instance configuration options can be added here
 
