@@ -14,11 +14,16 @@ variable "git_repo" {
   default     = "https://github.com/vandana-dsu/demo.git"  # Replace with your Git repository URL
 }
 
+variable "region" {
+  description = "AWS region for the EC2 instance"
+  default     = "us-east-1"  # Replace with your desired region
+}
+
 # EC2 instance resource
 resource "aws_instance" "example_instance" {
   ami           = var.ami
   instance_type = var.instance_type
-  region        = "us-east-1"
+  region        = var.region
 
   # Other instance configuration options can be added here
 
